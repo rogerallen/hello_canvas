@@ -1,4 +1,4 @@
-(defproject hello_canvas "0.1.0-SNAPSHOT"
+(defproject hello-canvas "0.1.0-SNAPSHOT"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
 
@@ -9,11 +9,9 @@
 
   :source-paths ["src"]
 
-  :cljsbuild { 
-    :builds [{:id "hello_canvas"
-              :source-paths ["src"]
-              :compiler {
-                :output-to "hello_canvas.js"
-                :output-dir "out"
-                :optimizations :none
-                :source-map true}}]})
+  :cljsbuild {:builds [{:id "hello-canvas"
+                        :source-paths ["src"]
+                        :compiler {:output-to     "hello_canvas.js"
+                                   :output-dir    "out"
+                                   :optimizations :none
+                                   :source-map    true}}]})
