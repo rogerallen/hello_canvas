@@ -5,6 +5,7 @@ canvas drawing experiment based on David Nolen's mies leiningen
 plugin.  See
 http://swannodette.github.io/2013/10/27/the-essence-of-clojurescript/
 
+To see what it will draw, take a look at http://cljsfiddle.net/view/rogerallen.hello-canvas
 
 Run this from a shell:
 ```shell
