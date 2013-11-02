@@ -1,12 +1,11 @@
-(ns hello-canvas.core
-  (:require [clojure.browser.dom :as dom]))
+(ns hello-canvas.core)
 ;; create
 ;;   lein new mies hello-canvas
 ;; run
 ;;   lein cljsbuild auto hello-canvas
 (. js/console (log "Hello Canvas!"))
 
-(def canvas (let [e (dom/get-element "canvas")]
+(def canvas (let [e (.getElementById js/document "canvas")]
               (atom {:element e :context (.getContext e "2d")})))
 (def counter (atom 0))
 
