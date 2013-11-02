@@ -11,12 +11,23 @@ Run this from a shell:
 lein cljsbuild auto hello-canvas
 ```
 
-Load index.html in your browser.
+Load file `hello_canvas.html` in your browser.  Just as a static file,
+you don't need to do it via a webserver.
 
-Edit `src/hello_canvas/core.cljs` to draw what you'd like.
+Edit `src/hello_canvas/core.cljs` if you would like to to draw
+something different.
+
+I renamed some files to make it easier to take the webpage and
+copy it for use as a static page.  Like this:
+
+```shell
+cp -R hello_canvas* <destdir>
+```
 
 ## License
 
 Copyright © 2013 Roger Allen
 
 Distributed under the Eclipse Public License, the same as Clojure.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rogerallen/hello_canvas/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
