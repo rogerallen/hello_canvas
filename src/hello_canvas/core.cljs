@@ -7,7 +7,7 @@
 
 (def canvas (let [e (.getElementById js/document "canvas")]
               (atom {:element e :context (.getContext e "2d")})))
-(def counter (atom 0))
+(def last-time (atom (js/Date.)))
 
 (defn rgb [r g b]
   (str "rgb(" r "," g "," b ")"))
@@ -21,10 +21,12 @@
 (defn draw
   "draw a fun little animating pattern"
   []
-  (let [ctx (:context @canvas)]
+  (let [ctx (:context @canvas)
+        cur-time (js/Date.)
+        delta-time (- cur-time @last-time)]
+    (swap! last-time (fn [_] cur-time))
     (clear ctx)
-    (swap! counter inc)
-    (let [c (/ @counter 10.0)]
+    (let [c (/ cur-time 300)]
       (.beginPath ctx)
       (.moveTo ctx 800 0)
       (.lineTo ctx 0 0)
@@ -37,4 +39,8 @@
       (.fill ctx))))
 
 ;; let there be animation
-(js/setInterval draw 50)
+(defn animate []
+  (.requestAnimationFrame js/window animate)
+  (draw))
+
+(animate)
